@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Component
@@ -32,11 +33,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getCustomer() {
-        List<CustomerDTO> bookDTOS = new ArrayList<>();
+        List<CustomerDTO> customerDTOS = new ArrayList<>();
         for (Customer customer : customers){
-            bookDTOS.add(CustomerMapper.ToCustomerDTO(customer));
+            customerDTOS.add(CustomerMapper.ToCustomerDTO(customer));
         }
-        return bookDTOS;
+        return customerDTOS;
     }
 
     @Override
