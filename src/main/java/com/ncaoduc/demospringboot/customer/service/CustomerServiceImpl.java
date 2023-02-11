@@ -1,5 +1,6 @@
 package com.ncaoduc.demospringboot.customer.service;
 
+import com.ncaoduc.demospringboot.customer.exceptions.CustomerException;
 import com.ncaoduc.demospringboot.customer.models.dto.CustomerDTO;
 import com.ncaoduc.demospringboot.customer.models.Customer;
 import com.ncaoduc.demospringboot.customer.models.mapper.CustomerMapper;
@@ -51,7 +52,7 @@ public class CustomerServiceImpl implements CustomerService {
                 return CustomerMapper.ToCustomerDTO(customer1);
             }
         }
-        return null;
+        throw new CustomerException("No User Matched");
     }
 
     @Override
@@ -77,7 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
                 return CustomerMapper.ToCustomerDTO(customer);
             }
         }
-        return null;
+        throw new CustomerException("No User Matched");
     }
 
     @Override
@@ -90,6 +91,6 @@ public class CustomerServiceImpl implements CustomerService {
                 return CustomerMapper.ToCustomerDTO(book);
             }
         }
-        return null;
+        throw new CustomerException("No User Matched");
     }
 }
